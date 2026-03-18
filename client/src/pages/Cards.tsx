@@ -1,4 +1,4 @@
-import { Plus, CreditCard, Trash2, Eye, EyeOff } from "lucide-react";
+import { Plus, CreditCard, Trash2, Eye, EyeOff, Shield, Percent, Gift, Wallet } from "lucide-react";
 import { useState } from "react";
 
 export default function Cards() {
@@ -11,8 +11,9 @@ export default function Cards() {
       type: "loyalty",
       number: "•••• •••• •••• 4242",
       balance: 2450,
-      icon: "🛒",
+      logo: "https://cdn.worldvectorlogo.com/logos/amazon-prime-icon.svg",
       benefits: "Free shipping, 2% cashback",
+      color: "from-blue-500 to-blue-700",
     },
     {
       id: 2,
@@ -20,8 +21,9 @@ export default function Cards() {
       type: "loyalty",
       number: "•••• •••• •••• 5555",
       balance: 1200,
-      icon: "🏷️",
+      logo: "https://cdn.worldvectorlogo.com/logos/ebay-4.svg",
       benefits: "Exclusive deals, priority support",
+      color: "from-red-500 to-red-700",
     },
     {
       id: 3,
@@ -29,8 +31,9 @@ export default function Cards() {
       type: "bank",
       number: "•••• •••• •••• 1234",
       balance: 5420.50,
-      icon: "💳",
+      logo: "https://cdn.worldvectorlogo.com/logos/visa-icon-1.svg",
       benefits: "1.5% cashback on all purchases",
+      color: "from-blue-600 to-blue-800",
     },
     {
       id: 4,
@@ -38,9 +41,17 @@ export default function Cards() {
       type: "bank",
       number: "•••• •••• •••• 6789",
       balance: 8932.75,
-      icon: "💳",
+      logo: "https://cdn.worldvectorlogo.com/logos/mastercard-icon.svg",
       benefits: "2% cashback, travel rewards",
+      color: "from-red-600 to-orange-600",
     },
+  ];
+
+  const cardBenefits = [
+    { icon: Shield, label: "Bank-level encryption", color: "text-green-600" },
+    { icon: Percent, label: "Auto-apply best cashback", color: "text-primary" },
+    { icon: Gift, label: "Exclusive rewards", color: "text-amber-600" },
+    { icon: Wallet, label: "All cards in one place", color: "text-blue-600" },
   ];
 
   const toggleCardNumber = (id: string) => {
@@ -53,7 +64,7 @@ export default function Cards() {
   return (
     <div className="min-h-screen bg-background pb-32">
       {/* Header */}
-      <div className="bg-white border-b border-border px-4 py-6">
+      <div className="bg-white/80 backdrop-blur-lg border-b border-border px-4 py-6">
         <h1
           className="text-2xl font-light text-foreground mb-2"
           style={{ fontFamily: "Georgia, serif" }}
@@ -66,50 +77,54 @@ export default function Cards() {
       </div>
 
       {/* How It Works */}
-      <div className="px-4 py-6 bg-white border-b border-border">
-        <h2
-          className="text-lg font-light text-foreground mb-4 text-center"
-          style={{ fontFamily: "Georgia, serif" }}
-        >
-          Smart Card Analysis
-        </h2>
+      <div className="px-4 py-6">
+        <div className="neumorphic-card p-5 mb-6">
+          <h2
+            className="text-lg font-light text-foreground mb-4 text-center"
+            style={{ fontFamily: "Georgia, serif" }}
+          >
+            Smart Card Analysis
+          </h2>
 
-        <div className="space-y-3 text-sm">
-          <div className="flex gap-3">
-            <div className="flex-shrink-0 w-6 h-6 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-xs font-bold">
-              1
-            </div>
-            <div>
-              <p className="font-medium text-foreground">Connect Your Cards</p>
-              <p className="text-xs text-muted-foreground">
-                Add loyalty cards, bank cards, and discount cards
-              </p>
-            </div>
+          <div className="grid md:grid-cols-3 gap-4">
+            {[
+              {
+                num: "1",
+                title: "Connect Your Cards",
+                desc: "Add loyalty cards, bank cards, and discount cards",
+              },
+              {
+                num: "2",
+                title: "AI Analysis",
+                desc: "Our AI analyzes all your cards for each product",
+              },
+              {
+                num: "3",
+                title: "Best Offer",
+                desc: "Shows which card gives maximum savings",
+              },
+            ].map((step) => (
+              <div key={step.num} className="flex gap-3">
+                <div className="flex-shrink-0 w-8 h-8 rounded-full gradient-button flex items-center justify-center text-sm font-bold">
+                  {step.num}
+                </div>
+                <div>
+                  <p className="font-medium text-foreground text-sm">{step.title}</p>
+                  <p className="text-xs text-muted-foreground">{step.desc}</p>
+                </div>
+              </div>
+            ))}
           </div>
+        </div>
 
-          <div className="flex gap-3">
-            <div className="flex-shrink-0 w-6 h-6 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-xs font-bold">
-              2
+        {/* Security Benefits */}
+        <div className="grid grid-cols-2 gap-3 mb-6">
+          {cardBenefits.map((benefit) => (
+            <div key={benefit.label} className="neumorphic p-3 rounded-lg flex items-center gap-2">
+              <benefit.icon className={`icon-monochrome ${benefit.color}`} size={18} />
+              <span className="text-xs text-foreground">{benefit.label}</span>
             </div>
-            <div>
-              <p className="font-medium text-foreground">AI Analysis</p>
-              <p className="text-xs text-muted-foreground">
-                Our AI analyzes all your cards for each product
-              </p>
-            </div>
-          </div>
-
-          <div className="flex gap-3">
-            <div className="flex-shrink-0 w-6 h-6 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-xs font-bold">
-              3
-            </div>
-            <div>
-              <p className="font-medium text-foreground">Best Offer</p>
-              <p className="text-xs text-muted-foreground">
-                Shows which card gives maximum savings
-              </p>
-            </div>
-          </div>
+          ))}
         </div>
       </div>
 
@@ -128,16 +143,18 @@ export default function Cards() {
           </button>
         </div>
 
-        <div className="space-y-4">
+        <div className="grid md:grid-cols-2 gap-4">
           {loyaltyCards.map((card) => (
             <div
               key={card.id}
-              className="bg-white border border-border rounded-lg p-4 hover:shadow-md transition-all"
+              className="neumorphic-card p-4 transition-all"
             >
               {/* Card Header */}
               <div className="flex items-start justify-between mb-3">
                 <div className="flex items-center gap-3">
-                  <div className="text-3xl">{card.icon}</div>
+                  <div className="w-12 h-12 rounded-lg bg-white flex items-center justify-center p-2">
+                    <img src={card.logo} alt={card.name} className="w-full h-full object-contain" />
+                  </div>
                   <div>
                     <h3 className="font-medium text-foreground text-sm">
                       {card.name}
@@ -153,13 +170,13 @@ export default function Cards() {
               </div>
 
               {/* Card Number */}
-              <div className="bg-muted rounded p-3 mb-3 flex items-center justify-between">
+              <div className="neumorphic-pressed rounded-lg p-3 mb-3 flex items-center justify-between">
                 <span className="text-sm font-mono text-foreground">
                   {showCardNumbers[`card-${card.id}`] ? card.number : "•••• •••• •••• ••••"}
                 </span>
                 <button
                   onClick={() => toggleCardNumber(`card-${card.id}`)}
-                  className="text-muted-foreground hover:text-foreground transition-colors"
+                  className="icon-monochrome hover:text-foreground transition-colors"
                 >
                   {showCardNumbers[`card-${card.id}`] ? (
                     <EyeOff size={16} />
@@ -171,14 +188,14 @@ export default function Cards() {
 
               {/* Card Info */}
               <div className="grid grid-cols-2 gap-3 mb-3">
-                <div className="bg-muted rounded p-3">
+                <div className="neumorphic-pressed rounded-lg p-3">
                   <p className="text-xs text-muted-foreground mb-1">Balance/Points</p>
                   <p className="font-bold text-foreground">
                     {card.type === "bank" ? "$" : ""}
                     {card.balance.toLocaleString()}
                   </p>
                 </div>
-                <div className="bg-muted rounded p-3">
+                <div className="neumorphic-pressed rounded-lg p-3">
                   <p className="text-xs text-muted-foreground mb-1">Benefits</p>
                   <p className="text-xs font-medium text-foreground">
                     {card.benefits}
@@ -205,13 +222,13 @@ export default function Cards() {
           Recommended Offers
         </h2>
 
-        <div className="space-y-3">
-          <div className="bg-white border-2 border-primary rounded-lg p-4">
+        <div className="grid md:grid-cols-2 gap-4">
+          <div className="neumorphic-card p-4 border-2 border-primary">
             <div className="flex justify-between items-start mb-2">
               <h3 className="font-medium text-foreground text-sm">
                 Premium Wireless Headphones
               </h3>
-              <span className="text-xs bg-success text-success px-2 py-1 rounded">
+              <span className="text-xs gradient-badge">
                 Best Match
               </span>
             </div>
@@ -219,30 +236,30 @@ export default function Cards() {
               Use Mastercard Elite for maximum savings
             </p>
             <div className="grid grid-cols-3 gap-2 text-xs mb-3">
-              <div className="bg-muted rounded p-2">
+              <div className="neumorphic-pressed rounded-lg p-2">
                 <p className="text-muted-foreground">Price</p>
                 <p className="font-bold text-foreground">$164.99</p>
               </div>
-              <div className="bg-muted rounded p-2">
+              <div className="neumorphic-pressed rounded-lg p-2">
                 <p className="text-muted-foreground">Card Benefit</p>
                 <p className="font-bold text-foreground">+2% back</p>
               </div>
-              <div className="bg-muted rounded p-2">
+              <div className="neumorphic-pressed rounded-lg p-2">
                 <p className="text-muted-foreground">You Pay</p>
                 <p className="font-bold text-success">$161.69</p>
               </div>
             </div>
-            <button className="w-full text-xs bg-primary text-primary-foreground py-2 rounded hover:bg-primary/90 transition-colors">
+            <button className="w-full text-xs gradient-button py-2">
               Buy with Mastercard
             </button>
           </div>
 
-          <div className="bg-white border border-border rounded-lg p-4">
+          <div className="neumorphic-card p-4">
             <div className="flex justify-between items-start mb-2">
               <h3 className="font-medium text-foreground text-sm">
                 Smart Watch Pro
               </h3>
-              <span className="text-xs bg-muted text-muted-foreground px-2 py-1 rounded">
+              <span className="text-xs neumorphic-pressed px-2 py-1">
                 Good Match
               </span>
             </div>
@@ -250,20 +267,20 @@ export default function Cards() {
               Use Amazon Prime for free shipping + cashback
             </p>
             <div className="grid grid-cols-3 gap-2 text-xs mb-3">
-              <div className="bg-muted rounded p-2">
+              <div className="neumorphic-pressed rounded-lg p-2">
                 <p className="text-muted-foreground">Price</p>
                 <p className="font-bold text-foreground">$229.99</p>
               </div>
-              <div className="bg-muted rounded p-2">
+              <div className="neumorphic-pressed rounded-lg p-2">
                 <p className="text-muted-foreground">Card Benefit</p>
                 <p className="font-bold text-foreground">+2% back</p>
               </div>
-              <div className="bg-muted rounded p-2">
+              <div className="neumorphic-pressed rounded-lg p-2">
                 <p className="text-muted-foreground">You Pay</p>
                 <p className="font-bold text-success">$225.39</p>
               </div>
             </div>
-            <button className="w-full text-xs bg-muted text-foreground py-2 rounded hover:bg-border transition-colors">
+            <button className="w-full text-xs neumorphic-btn py-2">
               Buy with Amazon Prime
             </button>
           </div>
@@ -271,9 +288,12 @@ export default function Cards() {
       </div>
 
       {/* Security Notice */}
-      <div className="px-4 py-6 bg-white border-t border-border">
-        <div className="bg-muted rounded-lg p-4 text-xs">
-          <p className="font-medium text-foreground mb-2">🔒 Your Data is Secure</p>
+      <div className="px-4 py-6">
+        <div className="neumorphic-pressed rounded-lg p-4 text-xs">
+          <p className="font-medium text-foreground mb-2 flex items-center gap-2">
+            <Shield className="icon-monochrome" size={14} />
+            Your Data is Secure
+          </p>
           <p className="text-muted-foreground">
             We use bank-level encryption. Card numbers are never stored on our servers. All data is encrypted end-to-end.
           </p>

@@ -52,7 +52,7 @@ const hotProducts = [
     salePrice: 949.99,
     discount: 21,
     coins: 9499,
-    image: "https://images.unsplash.com/photo-1678685888221-cda180f3f048?w=400&h=400&fit=crop",
+    image: "https://images.unsplash.com/photo-1695048133142-1a20484d2569?w=400&h=400&fit=crop",
     badges: ["TOP", "Trade-in"],
   },
   {

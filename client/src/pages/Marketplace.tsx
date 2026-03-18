@@ -5,26 +5,26 @@ export default function Marketplace() {
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [showFilters, setShowFilters] = useState(false);
 
-  // Marketplace groups
+  // Marketplace groups with real logo URLs
   const marketplaceGroups = {
     "Price Competitors": [
-      { name: "Amazon", icon: "🛒", color: "from-orange-400 to-orange-600" },
-      { name: "eBay", icon: "🏷️", color: "from-red-400 to-red-600" },
-      { name: "AliExpress", icon: "🌍", color: "from-red-500 to-red-700" },
-      { name: "Wish", icon: "✨", color: "from-pink-400 to-pink-600" },
-      { name: "Alibaba", icon: "🏭", color: "from-yellow-400 to-yellow-600" },
+      { name: "Amazon", logo: "https://cdn.worldvectorlogo.com/logos/amazon-icon-10.svg", color: "from-orange-400 to-orange-600" },
+      { name: "eBay", logo: "https://cdn.worldvectorlogo.com/logos/ebay-4.svg", color: "from-red-400 to-red-600" },
+      { name: "AliExpress", logo: "https://cdn.worldvectorlogo.com/logos/aliexpress-icon.svg", color: "from-red-500 to-red-700" },
+      { name: "Wish", logo: "https://cdn.worldvectorlogo.com/logos/wish-logo.svg", color: "from-pink-400 to-pink-600" },
+      { name: "Alibaba", logo: "https://cdn.worldvectorlogo.com/logos/alibaba-logo-1.svg", color: "from-yellow-400 to-yellow-600" },
     ],
     "Regional Marketplaces": [
-      { name: "Taobao", icon: "🇨🇳", color: "from-blue-400 to-blue-600" },
-      { name: "Lazada", icon: "🇸🇪", color: "from-cyan-400 to-cyan-600" },
-      { name: "Shopee", icon: "🛍️", color: "from-pink-500 to-pink-700" },
-      { name: "Tokopedia", icon: "🇮🇩", color: "from-green-400 to-green-600" },
+      { name: "Taobao", logo: "https://cdn.worldvectorlogo.com/logos/taobao-1.svg", color: "from-orange-400 to-orange-600" },
+      { name: "Lazada", logo: "https://cdn.worldvectorlogo.com/logos/lazada.svg", color: "from-cyan-400 to-cyan-600" },
+      { name: "Shopee", logo: "https://cdn.worldvectorlogo.com/logos/shopee.svg", color: "from-orange-500 to-orange-700" },
+      { name: "Tokopedia", logo: "https://cdn.worldvectorlogo.com/logos/tokopedia.svg", color: "from-green-400 to-green-600" },
     ],
     "Official Stores": [
-      { name: "Apple Store", icon: "🍎", color: "from-gray-400 to-gray-600" },
-      { name: "Samsung", icon: "📱", color: "from-blue-500 to-blue-700" },
-      { name: "Nike", icon: "👟", color: "from-black to-gray-700" },
-      { name: "Sony", icon: "🎮", color: "from-blue-600 to-blue-800" },
+      { name: "Apple Store", logo: "https://cdn.worldvectorlogo.com/logos/apple-14.svg", color: "from-gray-400 to-gray-600" },
+      { name: "Samsung", logo: "https://cdn.worldvectorlogo.com/logos/samsung-icon-1.svg", color: "from-blue-500 to-blue-700" },
+      { name: "Nike", logo: "https://cdn.worldvectorlogo.com/logos/nike-6.svg", color: "from-gray-800 to-black" },
+      { name: "Sony", logo: "https://cdn.worldvectorlogo.com/logos/sony-2.svg", color: "from-gray-600 to-gray-800" },
     ],
   };
 
@@ -40,6 +40,7 @@ export default function Marketplace() {
       rating: 4.8,
       marketplace: "Amazon",
       savings: 35,
+      image: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=400&fit=crop",
     },
     {
       id: 2,
@@ -52,6 +53,7 @@ export default function Marketplace() {
       rating: 4.6,
       marketplace: "eBay",
       savings: 70,
+      image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400&h=400&fit=crop",
     },
     {
       id: 3,
@@ -64,6 +66,7 @@ export default function Marketplace() {
       rating: 4.7,
       marketplace: "AliExpress",
       savings: 13,
+      image: "https://images.unsplash.com/photo-1583863788434-e58a36330cf0?w=400&h=400&fit=crop",
     },
     {
       id: 4,
@@ -76,6 +79,7 @@ export default function Marketplace() {
       rating: 4.5,
       marketplace: "Wish",
       savings: 8,
+      image: "https://images.unsplash.com/photo-1603351154351-5cf99bc70e67?w=400&h=400&fit=crop",
     },
     {
       id: 5,
@@ -88,13 +92,14 @@ export default function Marketplace() {
       rating: 4.4,
       marketplace: "Alibaba",
       savings: 20,
+      image: "https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=400&h=400&fit=crop",
     },
   ];
 
   return (
     <div className="min-h-screen bg-background pb-32">
       {/* Header */}
-      <div className="sticky top-0 bg-white border-b border-border z-10">
+      <div className="sticky top-0 bg-white/80 backdrop-blur-lg border-b border-border z-10">
         <div className="px-4 py-4">
           <h1
             className="text-2xl font-light text-foreground mb-4"
@@ -105,39 +110,39 @@ export default function Marketplace() {
 
           {/* Search & Photo Search */}
           <div className="flex items-center gap-2 mb-4">
-            <div className="flex-1 bg-input rounded px-3 py-2 flex items-center gap-2 border border-border">
-              <Search size={18} className="text-muted-foreground" />
+            <div className="flex-1 neumorphic-input flex items-center gap-2">
+              <Search size={18} className="icon-monochrome" />
               <input
                 type="text"
                 placeholder="Search products..."
-                className="flex-1 bg-transparent outline-none text-sm text-foreground placeholder-muted-foreground"
+                className="flex-1 bg-transparent outline-none text-sm text-foreground placeholder-muted-foreground neumorphic-input"
               />
             </div>
-            <button className="bg-primary text-primary-foreground p-2 rounded hover:bg-primary/90 transition-colors" title="Search by photo">
-              <Camera size={18} />
+            <button className="neumorphic-btn p-2" title="Search by photo">
+              <Camera className="icon-monochrome" size={18} />
             </button>
             <button
               onClick={() => setShowFilters(!showFilters)}
-              className="bg-muted text-foreground p-2 rounded hover:bg-border transition-colors"
+              className="neumorphic-btn p-2"
               title="Filters"
             >
-              <Filter size={18} />
+              <Filter className="icon-monochrome" size={18} />
             </button>
           </div>
 
           {/* Filter Options */}
           {showFilters && (
             <div className="grid grid-cols-2 gap-2 mb-4 text-xs">
-              <button className="bg-muted rounded px-3 py-2 text-foreground hover:bg-border transition-colors">
+              <button className="neumorphic px-3 py-2 text-foreground hover:neumorphic-pressed transition-all">
                 Price: Low to High
               </button>
-              <button className="bg-muted rounded px-3 py-2 text-foreground hover:bg-border transition-colors">
+              <button className="neumorphic px-3 py-2 text-foreground hover:neumorphic-pressed transition-all">
                 Rating: High to Low
               </button>
-              <button className="bg-muted rounded px-3 py-2 text-foreground hover:bg-border transition-colors">
+              <button className="neumorphic px-3 py-2 text-foreground hover:neumorphic-pressed transition-all">
                 Most Savings
               </button>
-              <button className="bg-muted rounded px-3 py-2 text-foreground hover:bg-border transition-colors">
+              <button className="neumorphic px-3 py-2 text-foreground hover:neumorphic-pressed transition-all">
                 Fast Shipping
               </button>
             </div>
@@ -152,19 +157,21 @@ export default function Marketplace() {
             <h2 className="text-sm font-medium text-foreground mb-3 text-muted-foreground uppercase tracking-wide">
               {groupName}
             </h2>
-            <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
               {marketplaces.map((mp) => (
                 <button
                   key={mp.name}
                   onClick={() => setSelectedCategory(selectedCategory === mp.name ? null : mp.name)}
-                  className={`neumorphic p-3 text-center transition-all ${
+                  className={`neumorphic-card p-4 flex flex-col items-center justify-center gap-2 transition-all ${
                     selectedCategory === mp.name
                       ? "neumorphic-pressed"
                       : ""
                   }`}
                 >
-                  <div className="text-2xl mb-2">{mp.icon}</div>
-                  <p className="text-xs font-medium text-foreground">{mp.name}</p>
+                  <div className="w-12 h-12 rounded-lg bg-white flex items-center justify-center p-2">
+                    <img src={mp.logo} alt={mp.name} className="w-full h-full object-contain" />
+                  </div>
+                  <p className="text-xs font-medium text-foreground text-center">{mp.name}</p>
                 </button>
               ))}
             </div>
@@ -178,12 +185,22 @@ export default function Marketplace() {
           Featured Deals
         </h2>
 
-        <div className="space-y-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {products.map((product) => (
             <div
               key={product.id}
-              className="neumorphic p-4 transition-all cursor-pointer hover:shadow-lg"
+              className="neumorphic-card p-4 transition-all cursor-pointer hover:shadow-lg"
             >
+              {/* Product Image */}
+              <div className="neumorphic-pressed w-full aspect-square rounded-lg overflow-hidden mb-4">
+                <img
+                  src={product.image}
+                  alt={product.name}
+                  className="w-full h-full object-cover"
+                  loading="lazy"
+                />
+              </div>
+
               {/* Header */}
               <div className="flex justify-between items-start mb-3">
                 <div className="flex-1">
@@ -210,15 +227,15 @@ export default function Marketplace() {
 
               {/* Savings Breakdown */}
               <div className="grid grid-cols-3 gap-2 mb-3 text-xs">
-                <div className="bg-muted rounded p-2">
+                <div className="neumorphic-pressed p-2">
                   <p className="text-muted-foreground">Discount</p>
                   <p className="font-medium text-foreground">-${product.discount}</p>
                 </div>
-                <div className="bg-muted rounded p-2">
+                <div className="neumorphic-pressed p-2">
                   <p className="text-muted-foreground">Referral</p>
                   <p className="font-medium text-foreground">-${product.referral}</p>
                 </div>
-                <div className="bg-muted rounded p-2">
+                <div className="neumorphic-pressed p-2">
                   <p className="text-muted-foreground">Bonus</p>
                   <p className="font-medium text-foreground">-${product.bonus}</p>
                 </div>
@@ -229,7 +246,7 @@ export default function Marketplace() {
                 <div className="text-xs text-success font-medium">
                   Save ${product.savings.toFixed(2)} ({((product.savings / product.original) * 100).toFixed(0)}%)
                 </div>
-                <button className="text-xs bg-primary text-primary-foreground px-3 py-1 rounded hover:bg-primary/90 transition-colors">
+                <button className="text-xs gradient-button px-3 py-1">
                   View Deal
                 </button>
               </div>
