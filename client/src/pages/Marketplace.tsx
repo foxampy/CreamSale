@@ -6,26 +6,26 @@ export default function Marketplace() {
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [showFilters, setShowFilters] = useState(false);
 
-  // Marketplace groups with real logo URLs
+  // Marketplace groups with real logo URLs (using reliable CDNs)
   const marketplaceGroups = {
     "Price Competitors": [
-      { name: "Amazon", logo: "https://cdn.worldvectorlogo.com/logos/amazon-icon-10.svg", color: "from-orange-400 to-orange-600" },
-      { name: "eBay", logo: "https://cdn.worldvectorlogo.com/logos/ebay-4.svg", color: "from-red-400 to-red-600" },
-      { name: "AliExpress", logo: "https://cdn.worldvectorlogo.com/logos/aliexpress-icon.svg", color: "from-red-500 to-red-700" },
-      { name: "Wish", logo: "https://cdn.worldvectorlogo.com/logos/wish-logo.svg", color: "from-pink-400 to-pink-600" },
-      { name: "Alibaba", logo: "https://cdn.worldvectorlogo.com/logos/alibaba-logo-1.svg", color: "from-yellow-400 to-yellow-600" },
+      { name: "Amazon", logo: "https://upload.wikimedia.org/wikipedia/commons/4/4a/Amazon_icon.svg", color: "from-orange-400 to-orange-600" },
+      { name: "eBay", logo: "https://upload.wikimedia.org/wikipedia/commons/1/1b/EBay_logo.svg", color: "from-red-400 to-red-600" },
+      { name: "AliExpress", logo: "https://upload.wikimedia.org/wikipedia/commons/b/bc/AliExpress_logo.svg", color: "from-red-500 to-red-700" },
+      { name: "Wish", logo: "https://upload.wikimedia.org/wikipedia/commons/9/9a/Wish_logo.svg", color: "from-pink-400 to-pink-600" },
+      { name: "Alibaba", logo: "https://upload.wikimedia.org/wikipedia/commons/2/23/Alibaba.com_Logo.svg", color: "from-orange-400 to-orange-600" },
     ],
     "Regional Marketplaces": [
-      { name: "Taobao", logo: "https://cdn.worldvectorlogo.com/logos/taobao-1.svg", color: "from-orange-400 to-orange-600" },
-      { name: "Lazada", logo: "https://cdn.worldvectorlogo.com/logos/lazada.svg", color: "from-cyan-400 to-cyan-600" },
-      { name: "Shopee", logo: "https://cdn.worldvectorlogo.com/logos/shopee.svg", color: "from-orange-500 to-orange-700" },
-      { name: "Tokopedia", logo: "https://cdn.worldvectorlogo.com/logos/tokopedia.svg", color: "from-green-400 to-green-600" },
+      { name: "Taobao", logo: "https://upload.wikimedia.org/wikipedia/commons/6/6b/Taobao_logo.svg", color: "from-orange-400 to-orange-600" },
+      { name: "Lazada", logo: "https://upload.wikimedia.org/wikipedia/commons/0/07/Lazada_logo.svg", color: "from-cyan-400 to-cyan-600" },
+      { name: "Shopee", logo: "https://upload.wikimedia.org/wikipedia/commons/f/fe/Shopee_logo.svg", color: "from-orange-500 to-orange-700" },
+      { name: "Tokopedia", logo: "https://upload.wikimedia.org/wikipedia/commons/9/93/Tokopedia_Logo.svg", color: "from-green-400 to-green-600" },
     ],
     "Official Stores": [
-      { name: "Apple Store", logo: "https://cdn.worldvectorlogo.com/logos/apple-14.svg", color: "from-gray-400 to-gray-600" },
-      { name: "Samsung", logo: "https://cdn.worldvectorlogo.com/logos/samsung-icon-1.svg", color: "from-blue-500 to-blue-700" },
-      { name: "Nike", logo: "https://cdn.worldvectorlogo.com/logos/nike-6.svg", color: "from-gray-800 to-black" },
-      { name: "Sony", logo: "https://cdn.worldvectorlogo.com/logos/sony-2.svg", color: "from-gray-600 to-gray-800" },
+      { name: "Apple Store", logo: "https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg", color: "from-gray-400 to-gray-600" },
+      { name: "Samsung", logo: "https://upload.wikimedia.org/wikipedia/commons/2/24/Samsung_Logo.svg", color: "from-blue-500 to-blue-700" },
+      { name: "Nike", logo: "https://upload.wikimedia.org/wikipedia/commons/a/a6/Logo_NIKE.svg", color: "from-gray-800 to-black" },
+      { name: "Sony", logo: "https://upload.wikimedia.org/wikipedia/commons/c/ca/Sony_logo.svg", color: "from-gray-600 to-gray-800" },
     ],
   };
 
