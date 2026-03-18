@@ -15,8 +15,8 @@ import BottomNav from "./components/BottomNav";
 
 function Router() {
   return (
-    <div className="flex flex-col h-screen">
-      <div className="flex-1 overflow-y-auto pb-40">
+    <div className="min-h-screen flex flex-col">
+      <div className="flex-1 pb-40">
         <Switch>
           <Route path={"/"} component={Home} />
           <Route path={"/marketplace"} component={Marketplace} />

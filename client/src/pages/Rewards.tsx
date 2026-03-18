@@ -1,5 +1,6 @@
 import { Copy, Share2, TrendingUp, Gift, Zap } from "lucide-react";
 import { useState } from "react";
+import Footer from "@/components/Footer";
 
 export default function Rewards() {
   const [copied, setCopied] = useState(false);
@@ -287,6 +288,8 @@ export default function Rewards() {
           </div>
         </div>
       </div>
+
+      <Footer />
     </div>
   );
 }

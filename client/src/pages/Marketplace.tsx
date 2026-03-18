@@ -1,5 +1,6 @@
 import { Search, Camera, Filter, Star } from "lucide-react";
 import { useState } from "react";
+import Footer from "@/components/Footer";
 
 export default function Marketplace() {
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
@@ -254,6 +255,8 @@ export default function Marketplace() {
           ))}
         </div>
       </div>
+
+      <Footer />
     </div>
   );
 }

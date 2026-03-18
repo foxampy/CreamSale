@@ -1,5 +1,6 @@
 import { Plus, CreditCard, Trash2, Eye, EyeOff, Shield, Percent, Gift, Wallet } from "lucide-react";
 import { useState } from "react";
+import Footer from "@/components/Footer";
 
 export default function Cards() {
   const [showCardNumbers, setShowCardNumbers] = useState<{ [key: string]: boolean }>({});
@@ -299,6 +300,8 @@ export default function Cards() {
           </p>
         </div>
       </div>
+
+      <Footer />
     </div>
   );
 }

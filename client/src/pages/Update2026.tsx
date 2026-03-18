@@ -1,6 +1,7 @@
 import { BookOpen, TrendingUp, Shield, Zap, Coins, Users, CreditCard, Percent, Tag, Gift, Star, CheckCircle2, AlertTriangle, XCircle, ArrowRight, Database, Lock, Globe, BarChart3 } from "lucide-react";
 import { motion } from "framer-motion";
 import { useLanguage } from "@/contexts/LanguageContext";
+import Footer from "@/components/Footer";
 
 const stackingLayers = [
   { id: 1, name: "site-discount", icon: Tag, value: "up to 30%", color: "text-red-600" },
@@ -383,6 +384,8 @@ export default function Update2026() {
           </button>
         </motion.div>
       </section>
+
+      <Footer />
     </div>
   );
 }

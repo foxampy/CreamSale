@@ -132,10 +132,14 @@
   * {
     @apply border-border outline-ring/50;
   }
+  html {
+    overflow-x: hidden;
+  }
   body {
     @apply bg-background text-foreground;
     background: linear-gradient(135deg, #faf9f7 0%, #fffefc 50%, #f5f0e8 100%);
     min-height: 100vh;
+    overflow-x: hidden;
   }
   button:not(:disabled),
   [role="button"]:not([aria-disabled="true"]),

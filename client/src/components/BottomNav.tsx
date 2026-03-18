@@ -17,47 +17,35 @@ export default function BottomNav() {
   ];
 
   return (
-    <>
-      {/* Navigation Tiles */}
-      <nav className="fixed bottom-0 left-0 right-0 bg-transparent px-3 py-4">
-        <div className="flex justify-center gap-2 max-w-md mx-auto flex-wrap">
-          {navItems.map(({ path, icon: Icon, label }) => (
-            <button
-              key={path}
-              onClick={() => setLocation(path)}
-              className={`flex flex-col items-center justify-center w-16 h-16 md:w-20 md:h-20 rounded-2xl transition-all duration-300 ${
-                isActive(path)
-                  ? "neumorphic-pressed bg-primary/10"
-                  : "neumorphic hover:shadow-lg"
+    <nav className="fixed bottom-0 left-0 right-0 bg-transparent px-3 py-4 z-50">
+      <div className="flex justify-center gap-2 max-w-md mx-auto flex-wrap">
+        {navItems.map(({ path, icon: Icon, label }) => (
+          <button
+            key={path}
+            onClick={() => setLocation(path)}
+            className={`flex flex-col items-center justify-center w-16 h-16 md:w-20 md:h-20 rounded-2xl transition-all duration-300 ${
+              isActive(path)
+                ? "neumorphic-pressed bg-primary/10"
+                : "neumorphic hover:shadow-lg"
+            }`}
+            title={t(label)}
+          >
+            <Icon
+              size={20}
+              className={`transition-colors duration-300 ${
+                isActive(path) ? "text-primary" : "text-muted-foreground"
               }`}
-              title={t(label)}
+            />
+            <span
+              className={`text-[10px] md:text-xs mt-1 font-medium transition-colors duration-300 ${
+                isActive(path) ? "text-primary" : "text-muted-foreground"
+              }`}
             >
-              <Icon
-                size={20}
-                className={`transition-colors duration-300 ${
-                  isActive(path) ? "text-primary" : "text-muted-foreground"
-                }`}
-              />
-              <span
-                className={`text-[10px] md:text-xs mt-1 font-medium transition-colors duration-300 ${
-                  isActive(path) ? "text-primary" : "text-muted-foreground"
-                }`}
-              >
-                {t(label)}
-              </span>
-            </button>
-          ))}
-        </div>
-      </nav>
-
-      {/* Footer */}
-      <footer className="fixed bottom-0 left-0 right-0 flex items-end justify-center pb-28 pointer-events-none">
-        <div className="neumorphic-pressed px-4 py-2 text-center">
-          <p className="text-xs text-muted-foreground">
-            {t("footer-text")}
-          </p>
-        </div>
-      </footer>
-    </>
+              {t(label)}
+            </span>
+          </button>
+        ))}
+      </div>
+    </nav>
   );
 }

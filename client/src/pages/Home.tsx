@@ -2,6 +2,7 @@ import { Search, Camera, Zap, TrendingUp, Gift, Shield, ShoppingCart, Tag, Users
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { useLanguage } from "@/contexts/LanguageContext";
+import Footer from "@/components/Footer";
 
 // Hot Products CreamSale 2020 with real Unsplash images
 const hotProducts = [
@@ -444,6 +445,8 @@ export default function Home() {
           </button>
         </motion.div>
       </section>
+
+      <Footer />
     </div>
   );
 }

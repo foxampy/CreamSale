@@ -1,4 +1,5 @@
 import { LogOut, ChevronRight, Settings, HelpCircle, Shield, Bell, Zap } from "lucide-react";
+import Footer from "@/components/Footer";
 
 export default function Profile() {
   return (
@@ -202,6 +203,8 @@ export default function Profile() {
           Sign Out
         </button>
       </div>
+
+      <Footer />
     </div>
   );
 }
