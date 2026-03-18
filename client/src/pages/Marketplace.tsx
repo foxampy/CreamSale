@@ -41,7 +41,7 @@ export default function Marketplace() {
       rating: 4.8,
       marketplace: "Amazon",
       savings: 35,
-      image: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=400&fit=crop",
+      image: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=300&h=300&fit=crop",
     },
     {
       id: 2,
@@ -54,7 +54,7 @@ export default function Marketplace() {
       rating: 4.6,
       marketplace: "eBay",
       savings: 70,
-      image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400&h=400&fit=crop",
+      image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=300&h=300&fit=crop",
     },
     {
       id: 3,
@@ -67,7 +67,7 @@ export default function Marketplace() {
       rating: 4.7,
       marketplace: "AliExpress",
       savings: 13,
-      image: "https://images.unsplash.com/photo-1583863788434-e58a36330cf0?w=400&h=400&fit=crop",
+      image: "https://images.unsplash.com/photo-1583863788434-e58a36330cf0?w=300&h=300&fit=crop",
     },
     {
       id: 4,
@@ -80,7 +80,7 @@ export default function Marketplace() {
       rating: 4.5,
       marketplace: "Wish",
       savings: 8,
-      image: "https://images.unsplash.com/photo-1603351154351-5cf99bc70e67?w=400&h=400&fit=crop",
+      image: "https://images.unsplash.com/photo-1603351154351-5cf99bc70e67?w=300&h=300&fit=crop",
     },
     {
       id: 5,
@@ -93,12 +93,12 @@ export default function Marketplace() {
       rating: 4.4,
       marketplace: "Alibaba",
       savings: 20,
-      image: "https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=400&h=400&fit=crop",
+      image: "https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=300&h=300&fit=crop",
     },
   ];
 
   return (
-    <div className="min-h-screen bg-background pb-32">
+    <div className="min-h-screen bg-background pb-40">
       {/* Header */}
       <div className="sticky top-0 bg-white/80 backdrop-blur-lg border-b border-border z-10">
         <div className="px-4 py-4">
@@ -158,21 +158,21 @@ export default function Marketplace() {
             <h2 className="text-sm font-medium text-foreground mb-3 text-muted-foreground uppercase tracking-wide">
               {groupName}
             </h2>
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
+            <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-2 md:gap-3">
               {marketplaces.map((mp) => (
                 <button
                   key={mp.name}
                   onClick={() => setSelectedCategory(selectedCategory === mp.name ? null : mp.name)}
-                  className={`neumorphic-card p-4 flex flex-col items-center justify-center gap-2 transition-all ${
+                  className={`neumorphic-card p-2 md:p-3 flex flex-col items-center justify-center gap-1 md:gap-2 transition-all ${
                     selectedCategory === mp.name
                       ? "neumorphic-pressed"
                       : ""
                   }`}
                 >
-                  <div className="w-12 h-12 rounded-lg bg-white flex items-center justify-center p-2">
+                  <div className="w-8 h-8 md:w-10 md:h-10 rounded-lg bg-white flex items-center justify-center p-1 md:p-2">
                     <img src={mp.logo} alt={mp.name} className="w-full h-full object-contain" />
                   </div>
-                  <p className="text-xs font-medium text-foreground text-center">{mp.name}</p>
+                  <p className="text-[10px] md:text-xs font-medium text-foreground text-center line-clamp-1">{mp.name}</p>
                 </button>
               ))}
             </div>
@@ -186,14 +186,14 @@ export default function Marketplace() {
           Featured Deals
         </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 md:gap-4">
           {products.map((product) => (
             <div
               key={product.id}
-              className="neumorphic-card p-4 transition-all cursor-pointer hover:shadow-lg"
+              className="neumorphic-card p-3 md:p-4 transition-all cursor-pointer hover:shadow-lg"
             >
               {/* Product Image */}
-              <div className="neumorphic-pressed w-full aspect-square rounded-lg overflow-hidden mb-4">
+              <div className="neumorphic-pressed w-full aspect-square rounded-lg overflow-hidden mb-3">
                 <img
                   src={product.image}
                   alt={product.name}
@@ -203,52 +203,54 @@ export default function Marketplace() {
               </div>
 
               {/* Header */}
-              <div className="flex justify-between items-start mb-3">
-                <div className="flex-1">
-                  <h3 className="font-medium text-foreground text-sm mb-1">
+              <div className="flex justify-between items-start mb-2">
+                <div className="flex-1 min-w-0">
+                  <h3 className="font-medium text-foreground text-xs md:text-sm mb-1 truncate">
                     {product.name}
                   </h3>
-                  <div className="flex items-center gap-2 text-xs">
-                    <span className="text-muted-foreground">{product.marketplace}</span>
-                    <span className="flex items-center gap-0.5">
-                      <Star size={12} className="fill-primary text-primary" />
+                  <div className="flex items-center gap-1 text-[10px] md:text-xs">
+                    <span className="text-muted-foreground truncate">{product.marketplace}</span>
+                    <span className="flex items-center gap-0.5 flex-shrink-0">
+                      <Star size={10} className="fill-primary text-primary" />
                       {product.rating}
                     </span>
                   </div>
                 </div>
-                <div className="text-right">
-                  <p className="text-xs text-muted-foreground line-through">
-                    ${product.original.toFixed(2)}
-                  </p>
-                  <p className="text-lg font-bold text-primary">
-                    ${product.final.toFixed(2)}
-                  </p>
-                </div>
+              </div>
+
+              {/* Price */}
+              <div className="mb-2">
+                <p className="text-[10px] text-muted-foreground line-through">
+                  ${product.original.toFixed(2)}
+                </p>
+                <p className="text-base md:text-lg font-bold text-primary">
+                  ${product.final.toFixed(2)}
+                </p>
               </div>
 
               {/* Savings Breakdown */}
-              <div className="grid grid-cols-3 gap-2 mb-3 text-xs">
-                <div className="neumorphic-pressed p-2">
-                  <p className="text-muted-foreground">Discount</p>
+              <div className="grid grid-cols-3 gap-1 mb-2 text-[10px]">
+                <div className="neumorphic-pressed p-1 rounded text-center">
+                  <p className="text-muted-foreground text-[9px]">Disc</p>
                   <p className="font-medium text-foreground">-${product.discount}</p>
                 </div>
-                <div className="neumorphic-pressed p-2">
-                  <p className="text-muted-foreground">Referral</p>
+                <div className="neumorphic-pressed p-1 rounded text-center">
+                  <p className="text-muted-foreground text-[9px]">Ref</p>
                   <p className="font-medium text-foreground">-${product.referral}</p>
                 </div>
-                <div className="neumorphic-pressed p-2">
-                  <p className="text-muted-foreground">Bonus</p>
+                <div className="neumorphic-pressed p-1 rounded text-center">
+                  <p className="text-muted-foreground text-[9px]">Bonus</p>
                   <p className="font-medium text-foreground">-${product.bonus}</p>
                 </div>
               </div>
 
               {/* Savings Badge */}
               <div className="flex items-center justify-between">
-                <div className="text-xs text-success font-medium">
-                  Save ${product.savings.toFixed(2)} ({((product.savings / product.original) * 100).toFixed(0)}%)
+                <div className="text-[10px] text-success font-medium">
+                  -{((product.savings / product.original) * 100).toFixed(0)}%
                 </div>
-                <button className="text-xs gradient-button px-3 py-1">
-                  View Deal
+                <button className="text-[10px] gradient-button px-2 py-1 rounded">
+                  View
                 </button>
               </div>
             </div>

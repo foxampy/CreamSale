@@ -3,11 +3,11 @@ import Footer from "@/components/Footer";
 
 export default function Profile() {
   return (
-    <div className="min-h-screen bg-background pb-32">
+    <div className="min-h-screen bg-background pb-40">
       {/* User Profile Header */}
-      <div className="bg-white border-b border-border px-4 py-8">
+      <div className="bg-white/80 backdrop-blur-lg border-b border-border px-4 py-8">
         <div className="flex items-center gap-4 mb-6">
-          <div className="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center text-3xl">
+          <div className="w-16 h-16 neumorphic rounded-full flex items-center justify-center text-3xl">
             👤
           </div>
           <div className="flex-1">
@@ -15,12 +15,12 @@ export default function Profile() {
               className="text-2xl font-light text-foreground"
               style={{ fontFamily: "Georgia, serif" }}
             >
-              Sarah Johnson
+              Foxampy
             </h1>
             <p className="text-sm text-muted-foreground">Member since 2020</p>
           </div>
         </div>
-        <p className="text-sm text-muted-foreground">sarah.johnson@email.com</p>
+        <p className="text-sm text-muted-foreground">foxampy@creamsale.com</p>
       </div>
 
       {/* Quick Stats */}

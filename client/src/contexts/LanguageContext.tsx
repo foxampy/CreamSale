@@ -59,7 +59,7 @@ const translations: Translations = {
   // Navigation
   "nav-home": { en: "Home", ru: "Главная" },
   "nav-deals": { en: "Deals", ru: "Скидки" },
-  "nav-rewards": { en: "Rewards", ru: "Награды" },
+  "nav-savings": { en: "My Savings", ru: "Награды" },
   "nav-cards": { en: "Cards", ru: "Карты" },
   "nav-profile": { en: "Profile", ru: "Профиль" },
   // Update 2026 page

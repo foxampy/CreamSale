@@ -24,17 +24,17 @@ export default function Rewards() {
   };
 
   return (
-    <div className="min-h-screen bg-background pb-32">
+    <div className="min-h-screen bg-background pb-40">
       {/* Header */}
-      <div className="bg-white border-b border-border px-4 py-6">
+      <div className="bg-white/80 backdrop-blur-lg border-b border-border px-4 py-6">
         <h1
           className="text-2xl font-light text-foreground mb-2"
           style={{ fontFamily: "Georgia, serif" }}
         >
-          Rewards & Savings
+          My Savings
         </h1>
         <p className="text-sm text-muted-foreground">
-          Maximize your savings with our three-tier system
+          Track your rewards and cashback
         </p>
       </div>
 
