@@ -1,17 +1,19 @@
 import { useLocation } from "wouter";
 import { Home, ShoppingBag, Gift, User, CreditCard } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function BottomNav() {
   const [location, setLocation] = useLocation();
+  const { t } = useLanguage();
 
   const isActive = (path: string) => location === path;
 
   const navItems = [
-    { path: "/", icon: Home, label: "Home" },
-    { path: "/marketplace", icon: ShoppingBag, label: "Deals" },
-    { path: "/rewards", icon: Gift, label: "Rewards" },
-    { path: "/cards", icon: CreditCard, label: "Cards" },
-    { path: "/profile", icon: User, label: "Profile" },
+    { path: "/", icon: Home, label: "nav-home" },
+    { path: "/marketplace", icon: ShoppingBag, label: "nav-deals" },
+    { path: "/rewards", icon: Gift, label: "nav-rewards" },
+    { path: "/cards", icon: CreditCard, label: "nav-cards" },
+    { path: "/profile", icon: User, label: "nav-profile" },
   ];
 
   return (
@@ -23,25 +25,25 @@ export default function BottomNav() {
             <button
               key={path}
               onClick={() => setLocation(path)}
-              className={`flex flex-col items-center justify-center w-20 h-20 rounded-2xl transition-all duration-300 ${
+              className={`flex flex-col items-center justify-center w-16 h-16 md:w-20 md:h-20 rounded-2xl transition-all duration-300 ${
                 isActive(path)
                   ? "neumorphic-pressed bg-primary/10"
                   : "neumorphic hover:shadow-lg"
               }`}
-              title={label}
+              title={t(label)}
             >
               <Icon
-                size={24}
+                size={20}
                 className={`transition-colors duration-300 ${
                   isActive(path) ? "text-primary" : "text-muted-foreground"
                 }`}
               />
               <span
-                className={`text-xs mt-1 font-medium transition-colors duration-300 ${
+                className={`text-[10px] md:text-xs mt-1 font-medium transition-colors duration-300 ${
                   isActive(path) ? "text-primary" : "text-muted-foreground"
                 }`}
               >
-                {label}
+                {t(label)}
               </span>
             </button>
           ))}
@@ -52,7 +54,7 @@ export default function BottomNav() {
       <footer className="fixed bottom-0 left-0 right-0 flex items-end justify-center pb-28 pointer-events-none">
         <div className="neumorphic-pressed px-4 py-2 text-center">
           <p className="text-xs text-muted-foreground">
-            © 2020 CreamSale • Developed by Foxampy
+            {t("footer-text")}
           </p>
         </div>
       </footer>
