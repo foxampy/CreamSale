@@ -2,6 +2,7 @@ import { BookOpen, TrendingUp, Shield, Zap, Coins, Users, CreditCard, Percent, T
 import { motion } from "framer-motion";
 import { useLanguage } from "@/contexts/LanguageContext";
 import Footer from "@/components/Footer";
+import MenuButton from "@/components/MenuButton";
 
 const stackingLayers = [
   { id: 1, name: "site-discount", icon: Tag, value: "up to 30%", color: "text-red-600" },
@@ -45,6 +46,9 @@ export default function Update2026() {
 
   return (
     <div className="min-h-screen bg-background pb-40">
+      {/* Menu Button */}
+      <MenuButton />
+
       {/* Header */}
       <section className="px-4 pt-8 pb-12">
         <motion.div

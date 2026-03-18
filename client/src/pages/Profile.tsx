@@ -1,9 +1,13 @@
 import { LogOut, ChevronRight, Settings, HelpCircle, Shield, Bell, Zap } from "lucide-react";
 import Footer from "@/components/Footer";
+import MenuButton from "@/components/MenuButton";
 
 export default function Profile() {
   return (
     <div className="min-h-screen bg-background pb-40">
+      {/* Menu Button */}
+      <MenuButton />
+
       {/* User Profile Header */}
       <div className="bg-white/80 backdrop-blur-lg border-b border-border px-4 py-8">
         <div className="flex items-center gap-4 mb-6">

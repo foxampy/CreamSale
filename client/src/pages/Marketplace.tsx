@@ -1,6 +1,7 @@
 import { Search, Camera, Filter, Star } from "lucide-react";
 import { useState } from "react";
 import Footer from "@/components/Footer";
+import MenuButton from "@/components/MenuButton";
 
 export default function Marketplace() {
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
@@ -99,6 +100,9 @@ export default function Marketplace() {
 
   return (
     <div className="min-h-screen bg-background pb-40">
+      {/* Menu Button */}
+      <MenuButton />
+
       {/* Header */}
       <div className="sticky top-0 bg-white/80 backdrop-blur-lg border-b border-border z-10">
         <div className="px-4 py-4">

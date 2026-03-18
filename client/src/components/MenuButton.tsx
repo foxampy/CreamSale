@@ -20,10 +20,10 @@ export default function MenuButton() {
 
   return (
     <>
-      {/* Menu Button */}
+      {/* Menu Button - Top Left */}
       <button
         onClick={() => setIsOpen(true)}
-        className="fixed bottom-20 left-4 z-40 neumorphic-btn p-3 md:hidden"
+        className="fixed top-4 left-4 z-50 neumorphic-btn p-3"
         aria-label="Open menu"
       >
         <Menu className="icon-monochrome" size={20} />

@@ -3,6 +3,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { useLanguage } from "@/contexts/LanguageContext";
 import Footer from "@/components/Footer";
+import MenuButton from "@/components/MenuButton";
 
 // Hot Products CreamSale 2020 with real Unsplash images
 const hotProducts = [
@@ -125,6 +126,9 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-background pb-40">
+      {/* Menu Button */}
+      <MenuButton />
+
       {/* Language Switcher */}
       <div className="fixed top-4 right-4 z-50">
         <button

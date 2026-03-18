@@ -1,6 +1,7 @@
 import { Plus, CreditCard, Trash2, Eye, EyeOff, Shield, Percent, Gift, Wallet } from "lucide-react";
 import { useState } from "react";
 import Footer from "@/components/Footer";
+import MenuButton from "@/components/MenuButton";
 
 export default function Cards() {
   const [showCardNumbers, setShowCardNumbers] = useState<{ [key: string]: boolean }>({});
@@ -63,7 +64,10 @@ export default function Cards() {
   };
 
   return (
-    <div className="min-h-screen bg-background pb-32">
+    <div className="min-h-screen bg-background pb-40">
+      {/* Menu Button */}
+      <MenuButton />
+
       {/* Header */}
       <div className="bg-white/80 backdrop-blur-lg border-b border-border px-4 py-6">
         <h1

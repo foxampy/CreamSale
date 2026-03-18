@@ -1,6 +1,7 @@
 import { Copy, Share2, TrendingUp, Gift, Zap } from "lucide-react";
 import { useState } from "react";
 import Footer from "@/components/Footer";
+import MenuButton from "@/components/MenuButton";
 
 export default function Rewards() {
   const [copied, setCopied] = useState(false);
@@ -25,6 +26,9 @@ export default function Rewards() {
 
   return (
     <div className="min-h-screen bg-background pb-40">
+      {/* Menu Button */}
+      <MenuButton />
+
       {/* Header */}
       <div className="bg-white/80 backdrop-blur-lg border-b border-border px-4 py-6">
         <h1
