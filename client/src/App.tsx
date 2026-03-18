@@ -12,6 +12,7 @@ import Cards from "./pages/Cards";
 import Profile from "./pages/Profile";
 import Update2026 from "./pages/Update2026";
 import BottomNav from "./components/BottomNav";
+import MenuButton from "./components/MenuButton";
 
 function Router() {
   return (
@@ -29,6 +30,7 @@ function Router() {
           <Route component={NotFound} />
         </Switch>
       </div>
+      <MenuButton />
       <BottomNav />
     </div>
   );
