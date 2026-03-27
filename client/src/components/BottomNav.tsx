@@ -17,13 +17,13 @@ export default function BottomNav() {
   ];
 
   return (
-    <nav className="fixed bottom-0 left-0 right-0 bg-transparent px-3 py-4 z-50">
-      <div className="flex justify-center gap-2 max-w-md mx-auto flex-wrap">
+    <nav className="fixed bottom-2 left-0 right-0 bg-transparent px-2 py-2 z-50">
+      <div className="flex justify-center gap-1 max-w-md mx-auto">
         {navItems.map(({ path, icon: Icon, label }) => (
           <button
             key={path}
             onClick={() => setLocation(path)}
-            className={`flex flex-col items-center justify-center w-16 h-16 md:w-20 md:h-20 rounded-2xl transition-all duration-300 ${
+            className={`flex flex-col items-center justify-center w-14 h-14 rounded-xl transition-all duration-300 ${
               isActive(path)
                 ? "neumorphic-pressed bg-primary/10"
                 : "neumorphic hover:shadow-lg"
@@ -31,13 +31,13 @@ export default function BottomNav() {
             title={t(label)}
           >
             <Icon
-              size={20}
+              size={18}
               className={`transition-colors duration-300 ${
                 isActive(path) ? "text-primary" : "text-muted-foreground"
               }`}
             />
             <span
-              className={`text-[10px] md:text-xs mt-1 font-medium transition-colors duration-300 ${
+              className={`text-[9px] mt-0.5 font-medium transition-colors duration-300 ${
                 isActive(path) ? "text-primary" : "text-muted-foreground"
               }`}
             >
