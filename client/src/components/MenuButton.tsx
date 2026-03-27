@@ -1,4 +1,4 @@
-import { Menu, X, Home, ShoppingBag, Gift, CreditCard, User, BookOpen } from "lucide-react";
+import { Menu, X, Home, ShoppingBag, Gift, CreditCard, User } from "lucide-react";
 import { useState } from "react";
 import { useLocation } from "wouter";
 import { motion, AnimatePresence } from "framer-motion";
@@ -13,7 +13,6 @@ export default function MenuButton() {
     { path: "/rewards", icon: Gift, label: "My Savings" },
     { path: "/cards", icon: CreditCard, label: "Cards" },
     { path: "/profile", icon: User, label: "Profile" },
-    { path: "/update-2026", icon: BookOpen, label: "Research 2026" },
   ];
 
   const isActive = (path: string) => location === path;
